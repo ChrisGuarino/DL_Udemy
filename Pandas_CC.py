@@ -88,6 +88,18 @@ print("Operations Stacking:\n",df[df['W']>0]['Y'].loc['A'])
 #Two Coniditions or More 
 cond_1 = df['W']>0
 cond_2 = df['Y']>1
+print("Two Conditions:\n",df[(cond_1)&(cond_2)])
+#Normally this would all be written out as one statement 
+print("One Line:\n", df[(df['W']>0) & (df['Y']>1)]) 
 
+#Reset Index 
+df.reset_index() #Does not happen in place. 
+print(df) 
 
+#So if you want this change to be presistent. 
+df.reset_index(inplace=True)
+print("Presistent:\n", df )
+
+#Set Column to be the new Index 
+new_ind = 'CA NY WY OR CO'.split() 
 
